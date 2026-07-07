@@ -12,13 +12,13 @@ const App = (props) => {
 	const [errorMessage, setErrorMessage] = useState(null);
 
 	useEffect(() => {
-		noteService
-			.getAll()
-			.then(
-			initialNotes => { 
-				setNotes(initialNotes);
-			}
-		)
+		const refreshNotes = () => noteService.getAll().then(setNotes)
+
+		refreshNotes()
+
+		const interval = setInterval(refreshNotes, 5000)
+
+		return () => clearInterval(interval)
 	}, [])
 
 	if(!notes)
