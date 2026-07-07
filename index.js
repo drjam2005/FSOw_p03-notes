@@ -43,7 +43,7 @@ app.put('/api/notes/:id', (request, response) => {
 	const id = request.params.id;
 	const body = request.body;
 	console.log(id, body);
-	const note = notes.map(n => n.id === id ? body : n);
+	notes = notes.map(n => n.id === id ? body : n);
 	return response.status(200).json(
 		body
 	)
