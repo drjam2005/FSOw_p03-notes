@@ -16,7 +16,7 @@ const App = (props) => {
 
 		refreshNotes()
 
-		const interval = setInterval(refreshNotes, 5000)
+		const interval = setInterval(refreshNotes, 1000)
 
 		return () => clearInterval(interval)
 	}, [])
